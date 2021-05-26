@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:rel="stylesheet" th:href="@{libs/bootstrap-5.0.1-dist/css/bootstrap.css}"/>
+
+    <title>Hello Memo </title>
+</head>
+<body>
+<center>
+    <div>
+        <p class="fs-1 fw-bold fst-italic">Hello Memo</p>
+        <p>메모장입니다.</p>
+        <p>
+            <a class="btn btn-primary" href="/memos/new">메모하기</a>
+            <a class="btn btn-primary" href="/memos">메모확인</a>
+
+        </p>
+    </div>
+</center>
+</body>
+
+<script src="<c:url value='/libs/jquery-3.6.0.min.js'/>"></script>
+<script src="<c:url value='/libs/bootstrap-5.0.1-dist/css/bootstrap.css'/>"></script>
+</html>
