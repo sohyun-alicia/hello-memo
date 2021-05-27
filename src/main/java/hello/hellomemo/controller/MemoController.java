@@ -20,12 +20,12 @@ public class MemoController {
         this.memoService = memoService;
     }
 
-    @GetMapping(value = "/memos/new")
-    public String createForm() {
-        return "memos/createMemoForm";
-    }
+//    @GetMapping(value = "/memos/new")
+//    public String createForm() {
+//        return "memos/createMemoForm";
+//    }
 
-    @PostMapping(value = "/memos/new")
+    @PostMapping(value = "/")
     public String create(MemoForm form) {
         Memo memo = new Memo();
         memo.setName(form.getName());

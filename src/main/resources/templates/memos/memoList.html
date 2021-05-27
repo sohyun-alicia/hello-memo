@@ -3,30 +3,48 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
-  <link th:rel="stylesheet" th:href="@{libs/bootstrap-5.0.1-dist/css/bootstrap.css}"/>
-
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.css">
+  <style>
+    div {
+      /*background-color: whitesmoke;*/
+      width: 400px;
+      padding: 20px;
+      border: 25px aliceblue;
+      text-align: center;
+      align-content: center;
+    }
+  </style>
   <title>Hello Memo </title>
 </head>
 <body>
 <div class="container">
   <div>
-    <table>
+    <table class="table">
       <thead>
       <tr>
-        <th>#</th>
-        <th>메모장</th>
+        <th scope="col">#</th>
+        <th scope="col">메모장</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
-      <tr th:each="memo : ${memos}">
-        <td th:text="${memo.id}"></td>
-        <td th:text="${memo.name}"></td>
+      <tr th:each="memo : ${memos}" scope="row">
+        <td th:text="${memo.id}" scope="row"></td>
+        <td th:text="${memo.name}" scope="row"></td>
+        <td>
+          <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+        </td>
       </tr>
       </tbody>
+      <div>
+        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+      </div>
     </table>
   </div>
+  <a class="btn btn-secondary" href="/">Home</a>
 </div> <!-- /container -->
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.0.1/css/bootstrap.css"></script>
 </body>
-<script src="<c:url value='/libs/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/libs/bootstrap-5.0.1-dist/css/bootstrap.css'/>"></script>
+
 </html>

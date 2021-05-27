@@ -3,7 +3,17 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
-  <link th:rel="stylesheet" th:href="@{libs/bootstrap-5.0.1-dist/css/bootstrap.css}">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.css">
+  <style>
+    div {
+      /*background-color: whitesmoke;*/
+      width: 500px;
+      padding: 40px;
+      border: 25px aliceblue;
+      text-align: center;
+      align-content: center;
+    }
+  </style>
 
   <title>Hello Memo</title>
 </head>
@@ -12,18 +22,20 @@
 <div class="container">
 
   <form action="/memos/new" method="post">
-    <div class="form-group">
-      <label for="name">메모</label>
-      <input type="text" id="name" name="name" placeholder="여기에 메모하세요.">
+    <div class="input-group mb-3">
+      <input type="text" id="name" name="name" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2" placeholder="여기에 메모하세요.">
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
     </div>
-    <button class="btn btn-primary" type="summit">등록</button>
+
+
     <a class="btn btn-secondary" href="/">Home</a>
   </form>
 
 </div><!-- /container -->
 
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.0.1/css/bootstrap.css"></script>
 </body>
 
-<script src="<c:url value='/libs/jquery-3.6.0.min.js'>"></script>
-<script src="<c:url value='/libs/bootstrap-5.0.1-dist/css/bootstrap.css'>"></script>
+
 </html>
