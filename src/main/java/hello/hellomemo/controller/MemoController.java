@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
@@ -25,11 +26,13 @@ public class MemoController {
 //        return "memos/createMemoForm";
 //    }
 
+    String time;
     @PostMapping(value = "/")
     public String create(MemoForm form) {
         Memo memo = new Memo();
         memo.setName(form.getName());
-
+        memo.setData(form.getData());
+//        memo.setTime(form.getTime());
         memoService.join(memo);
 
         return "redirect:/";

@@ -20,7 +20,7 @@ public class MemoService {
     // 회원가입
     public Long join(Memo memo) {
 
-        validateDuplicateMemo(memo);    // 중복 회원 검증
+//        validateDuplicateMemo(memo);    // 중복 회원 검증
         memoRepository.save(memo);
         return memo.getId();
     }

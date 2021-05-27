@@ -2,6 +2,7 @@ package hello.hellomemo.repository;
 
 import hello.hellomemo.domain.Memo;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 public class MemoryMemoRepository implements MemoRepository {
@@ -33,7 +34,18 @@ public class MemoryMemoRepository implements MemoRepository {
                 .findAny();
     }
 
-    public void clearStore() {
-        store.clear();
+    @Override
+    public Optional<Memo> findByData(String data) {
+        return store.values().stream()
+                .filter(memo -> memo.getData().equals(data))
+                .findAny();
+    }
+
+    @Override
+    public Optional<Memo> findByTime(String time) {
+        return store.values().stream()
+                .filter(memo -> memo.getData().equals(time))
+                .findAny();
     }
 }
+

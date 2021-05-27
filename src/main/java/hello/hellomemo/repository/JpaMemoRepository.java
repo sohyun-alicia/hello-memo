@@ -3,6 +3,7 @@ package hello.hellomemo.repository;
 import hello.hellomemo.domain.Memo;
 
 import javax.persistence.EntityManager;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,22 @@ public class JpaMemoRepository implements MemoRepository{
     public Optional<Memo> findByName(String name) {
         List<Memo> result = em.createQuery("select m from Memo m where m.name = :name", Memo.class)
                 .setParameter("name", name)
+                .getResultList();
+        return result.stream().findAny();
+    }
+
+    @Override
+    public Optional<Memo> findByData(String data) {
+        List<Memo> result = em.createQuery("select m from Memo m where m.data = :data", Memo.class)
+                .setParameter("data", data)
+                .getResultList();
+        return result.stream().findAny();
+    }
+
+    @Override
+    public Optional<Memo> findByTime(String time) {
+            List<Memo> result = em.createQuery("select m from Memo m where m.time = :time", Memo.class)
+                .setParameter("time", time)
                 .getResultList();
         return result.stream().findAny();
     }
